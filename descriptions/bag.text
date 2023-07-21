@@ -1,0 +1,9 @@
+Criação da pág:
+
+criar um container completa que engloba toda a tela e seus componentes
+
+separar esse container em mais 3 containers: cabeçalho, itens e informações.
+*cabecalho com três informações em lista e com links
+*itens com três inf: img, detalhes e preços
+* informações: as informações são divididas em linhas (produto, frete, desconto e subtotal)
++ botão para reinderizar para a pág seguinte (pgmt)
