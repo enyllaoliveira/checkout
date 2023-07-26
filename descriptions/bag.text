@@ -1,9 +1,13 @@
 Criação da pág:
 
-criar um container completa que engloba toda a tela e seus componentes
+criar um container que engloba toda a tela e seus componentes
 
 separar esse container em mais 3 containers: cabeçalho, itens e informações.
 *cabecalho com três informações em lista e com links
+o cabecalho deverá indicar qual página está aberta (sacola, pgmt ou confirmação)
+com um sublinhado e mudança de de cor (cinza p preta) na aba aberta
+
 *itens com três inf: img, detalhes e preços
+
 * informações: as informações são divididas em linhas (produto, frete, desconto e subtotal)
 + botão para reinderizar para a pág seguinte (pgmt)
