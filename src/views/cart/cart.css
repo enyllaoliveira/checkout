@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(113, 175, 229);
+    font-size: x-large;
+}
+
+.list-itens {
+    justify-content: center;
+}
+
+.card {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.image, h1 {
+    margin-left: 50px;
+}
+
+.oldPrice, .price {
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.oldPrice {
+    text-decoration: line-through;
+}
