@@ -16,13 +16,14 @@ export default () => {
     
     window.addEventListener('DOMContentLoaded', () => {
         if (!window.location.hash) {
-            App.append(cart(infoCart.items))
+            App.append(cart(infoCart))
             history.pushState(null, null, '#cart')
         } else {
-            App.append(buildRoutes(infoCart.items))        
+            App.append(buildRoutes(infoCart))        
         }
         setRouteActive()
     })
+
     return App
     }
 
