@@ -1,18 +1,19 @@
+
 export default (data) => {
     const cardItemsPayment = document.createElement('div')
-    cardItemsPayment.classList.add('wrapper')
+    cardItemsPayment.classList.add('details')
 
     let cardWithItems = mountItensPrice(data)
     cardItemsPayment.appendChild(cardWithItems)
-
-    return cardItemsPayment
+        
+      return cardItemsPayment
 
      function mountItensPrice(data) {
         let cardPayment = document.createElement('div')
-        cardPayment.classList.add('cardPaymentItems')
+        cardPayment.classList.add('card-payment-items')
     
         let totalpriceItems = document.createElement('span')
-        totalpriceItems.classList.add('cardPayment')
+        totalpriceItems.classList.add('card-payment')
 
         let totalPriceText = document.createElement('span')
         totalPriceText.innerText = `Produtos: (3 itens)`
@@ -21,7 +22,7 @@ export default (data) => {
         totalPrice.innerText = `R$ ${data.subTotal}` 
     
         let freightTextItems = document.createElement('span')
-        freightTextItems.classList.add('cardPayment')
+        freightTextItems.classList.add('card-payment')
 
         let freightText =  document.createElement('span')
         freightText.innerText = `Frete: `
@@ -30,7 +31,7 @@ export default (data) => {
         freight.innerText = `R$ ${data.shippingTotal}` 
 
         let discountItemItems = document.createElement('span')
-        discountItemItems.classList.add('cardPayment')
+        discountItemItems.classList.add('card-payment')
 
         let discountItemText = document.createElement('span')
         discountItemText.innerText = `Desconto: `
@@ -39,16 +40,14 @@ export default (data) => {
         discountItem.innerText = `R$ ${data.discount}` 
     
         let totalFinalItem = document.createElement('span')
-        totalFinalItem.classList.add('cardPayment')
+        totalFinalItem.classList.add('card-payment')
 
         let totalFinalText = document.createElement('span')
         totalFinalText.innerText =  `Subtotal: `
 
         let totalFinal = document.createElement('span')
         totalFinal.innerText = `R$ ${data.total}` 
-    
-        let btn = document.createElement('button')
-        btn.innerText = `Seguir para o pagamento`
+
 
         totalFinalItem.appendChild(totalFinalText)
         totalFinalItem.appendChild(totalFinal)
@@ -64,10 +63,10 @@ export default (data) => {
         cardPayment.appendChild(freightTextItems)
         cardPayment.appendChild(discountItemItems)
         cardPayment.appendChild(totalFinalItem)
-        cardPayment.appendChild(btn)
+       
         return cardPayment
-
-    }    
+    }  
+    
 }
 
 

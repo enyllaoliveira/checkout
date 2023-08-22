@@ -1,7 +1,7 @@
 
 export default (items) => {
     const cardItens = document.createElement('div')
-    cardItens.classList.add('list-itens' , 'wrapper')
+    cardItens.classList.add('list-itens')
 
     items.forEach(element => {
         let item = mountItem(element.product.imageObjects[0]?.medium, element.product.name, element.product.priceSpecification.originalPrice, element.product.priceSpecification.maxPrice)
@@ -28,7 +28,7 @@ function mountItem(image, name, price, oldPricies) {
     let pricies = document.createElement('span')
     
     let oldPrice = document.createElement('span')
-    oldPrice.classList.add('oldPrice')
+    oldPrice.classList.add('old-price')
 
     let itemsPrice = document.createElement('span')
     itemsPrice.innerText =  `R$${price}` ;

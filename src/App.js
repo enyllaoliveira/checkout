@@ -1,5 +1,6 @@
 import cart from './views/cart/cart.js'
 import payment from './views/payment/payment.js'
+import confirmation from './views/confirmation/confirmation.js'
 
 export default () => {
     getProducts().then(res => localStorage.setItem('infoCart', JSON.stringify(res)))
@@ -7,7 +8,7 @@ export default () => {
     const App = document.createElement('div')
     let nav = document.createElement('ul')
 
-    nav.classList.add('navbar')
+    nav.classList.add('nav-bar')
     nav.appendChild(builddNavItens('Sacola', 'cart'))
     nav.appendChild(builddNavItens('Pagamento', 'payment'))
     nav.appendChild(builddNavItens('Confirmação', 'confirmation'))
@@ -44,7 +45,7 @@ export default () => {
         }
 
         if (window.location.hash === '#payment' ) {
-            return payment()
+            return payment(infoCart)
         }
 
         if (window.location.hash === '#confirmation' ) {
