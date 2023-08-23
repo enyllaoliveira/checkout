@@ -49,7 +49,7 @@ export default () => {
         }
 
         if (window.location.hash === '#confirmation' ) {
-            return confirmation()
+            return confirmation(infoCart)
         }
     } 
 

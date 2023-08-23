@@ -5,7 +5,7 @@ export default (paymentItems) => {
 
     let form = mountCartPayment()
     payment.appendChild(form)
-    payment.appendChild(details(paymentItems))
+    payment.appendChild(details(paymentItems)) 
     window.addEventListener('load', () => {
     })
 
