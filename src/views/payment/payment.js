@@ -14,9 +14,16 @@ export default (paymentItems) => {
     btn.style.pointerEvents = 'none'
     btn.innerText = `Finalizar pedido`  
     btn.addEventListener('click', () => {
-        btn.setAttribute('href', '#confirmation')
-        window.location.href = '#confirmation'
-        window.location.reload() 
+        if (document.getElementsByTagName('input').length !== 4) {
+            btn.classList.add('btn-next', 'disabled')
+            btn.style.pointerEvents = 'none'
+        } else {
+            btn.classList.remove('disabled')
+            btn.removeAttribute.style
+            btn.setAttribute('href', '#confirmation')
+            window.location.href = '#confirmation'
+            window.location.reload() 
+        }
     }) 
     validate(form, btn)
     payment.appendChild(btn)
@@ -115,13 +122,12 @@ function validate(form, btn) {
     form.addEventListener('input', function(event)  {
         let elementsErrors = []
         for(let el of form.elements) {
-            cleanErrors(el)
             validateFields()[el.id](el)
             if (!validateFields()[el.id](el)) {
                 elementsErrors.push(el)
             }
         }
-        if (elementsErrors.length) {
+        if (elementsErrors.length > 1) {
             btn.classList.add('disabled')
             btn.style.pointerEvents = 'none'
         } else {
@@ -137,16 +143,33 @@ function validate(form, btn) {
         'numberCart': (el) => {
             if (el.value.length < 19) {
                 setErrors(el)
-            } 
+            }   else {
+                cleanErrors(el)
+            }
             return el.value.length === 19
         },
         'nameHolder': (el) => {
-            return el.value.length >= 8 
+            if (el.value.length <= 8) {
+                setErrors(el)
+            } else {
+                cleanErrors(el)
+            }
+            return el.value.length <= 8 
         },
         'dateCart': (el) => {
+            if (el.value.length < 7) {
+                setErrors(el)
+            } else {
+                cleanErrors(el)
+            }
             return el.value.length === 7
         },
         'codeCart': (el) => {
+            if (el.value.length < 3) {
+                setErrors(el)
+            } else {
+                cleanErrors(el)
+            }
             return el.value.length === 3
         }
     }
@@ -156,14 +179,17 @@ let cleanErrors = (el) => {
     el.classList.remove('has-error')
     let msgError = document.getElementById('msg-error')
     if (msgError) {
-        msgError.classList.add('hide-error')
+        msgError.parentElement.removeChild(msgError)
     }
 }
 
 let setErrors = (el) => {
-    el.classList.add('has-error')
-    let msgError = document.createElement('span')
-    msgError.id = 'msg-error'
-    msgError.innerText= `Esse campo é obrigatório.`
-    el.after(msgError)
+    if (!el.classList.contains('has-error')) {
+        el.classList.add('has-error')
+        let msgError = document.createElement('span')
+        msgError.id = 'msg-error'
+        msgError.innerText= `Esse campo é obrigatório.`
+        el.after(msgError)
+    } 
+    return
 }
